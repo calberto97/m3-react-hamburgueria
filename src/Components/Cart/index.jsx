@@ -12,7 +12,7 @@ const Cart = ({ currentSale, setCurrentSale }) => {
 
   if (currentSale.length) {
     return (
-      <StyledDiv>
+      <StyledDiv className="not-empty">
         <div>
           <h2>Carrinho de compras</h2>
         </div>
@@ -26,7 +26,10 @@ const Cart = ({ currentSale, setCurrentSale }) => {
             />
           ))}
         </ul>
-        <CartTotal cartTotal={total} setCurrentSale={setCurrentSale} />
+        <CartTotal
+          cartTotal={total}
+          setCurrentSale={setCurrentSale}
+        />
       </StyledDiv>
     );
   } else {

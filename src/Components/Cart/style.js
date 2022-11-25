@@ -7,14 +7,14 @@ const StyledDiv = styled.div`
   overflow: hidden;
 
   height: fit-content;
-  min-height: 220px;
+  /* min-height: 220px; */
   margin-bottom: 20px;
 
   position: relative;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   @media (max-width: 1000px) {
     width: 100%;
@@ -25,13 +25,18 @@ const StyledDiv = styled.div`
     padding: 20px 22px 14px;
   }
 
+  .not-empty {
+    justify-content: space-between !important;
+    min-height: 220px;
+  }
+  
   > div + div {
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    right: 25%;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 
     h2 {
+      margin-top: 60px;
       color: var(--color-gray-100);
       margin-bottom: 20px;
     }
@@ -40,6 +45,7 @@ const StyledDiv = styled.div`
       font-size: var(--font-size-14);
       color: var(--color-gray-50);
       text-align: center;
+      margin-bottom: 60px;
     }
   }
 
