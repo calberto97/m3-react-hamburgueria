@@ -102,9 +102,15 @@ const Global = createGlobalStyle`
   @media (prefers-color-scheme: dark){
       :root{
           --color-grey-100: #F5F5F5;
-          --color-grey-0: #333333;
-          --color-background: black;
+          --color-gray-50: #828282;
+          --color-gray-20: #E0E0E0;
+          --color-grey-0: #1b1b1b;
+          --color-background: #333333;
       }  
+
+      button {
+        color: #1b1b1b !important;
+      }
   }
 `;
 

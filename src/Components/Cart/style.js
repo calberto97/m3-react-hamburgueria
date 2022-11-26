@@ -20,6 +20,27 @@ const StyledDiv = styled.div`
     width: 100%;
   }
 
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-50);
+
+    h2 {
+      color: #1b1b1b !important;
+    }
+
+    p {
+      color: #1b1b1b !important;
+    }
+
+    section span > p + p {
+      color: var(--color-gray-100) !important;
+    }
+
+    section > button:hover {
+      background-color: #1b1b1b !important;
+      color: var(--color-gray-20) !important;
+    }
+  }
+
   > div:first-child {
     background-color: var(--color-primary);
     padding: 20px 22px 14px;
@@ -29,7 +50,7 @@ const StyledDiv = styled.div`
     justify-content: space-between !important;
     min-height: 220px;
   }
-  
+
   > div + div {
     margin: 0 auto;
     width: 100%;

@@ -51,6 +51,12 @@ const StyledDiv = styled.div`
     font-weight: 700;
   }
 
+   @media (prefers-color-scheme: dark) {
+     div > h2 {
+      color: var(--color-gray-20);
+     }
+   }
+
   h2 {
     color: var(--color-gray-100);
   }

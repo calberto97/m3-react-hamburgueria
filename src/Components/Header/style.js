@@ -5,6 +5,19 @@ const StyledHeader = styled.header`
   box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.1);
   margin-bottom: 32px;
 
+  @media (prefers-color-scheme: dark) {
+    --color-gray-0: #1b1b1b;
+    h2 {
+      color: white;
+    }
+
+    input {
+      background-color: var(--color-background) !important;
+      border: 2px solid var(--color-gray-0);
+      color: white;
+    }
+  }
+
   div {
     height: 80px;
     display: flex;
@@ -54,7 +67,6 @@ const StyledHeader = styled.header`
     position: absolute;
     right: 10px;
   }
-
 `;
 
 export default StyledHeader

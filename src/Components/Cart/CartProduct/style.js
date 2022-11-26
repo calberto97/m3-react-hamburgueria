@@ -17,7 +17,21 @@ const StyledLi = styled.li`
     height: 100%;
   }
 
+  @media (prefers-color-scheme: dark) {
+    img {
+      background-color: var(--color-gray-100) !important;
+    }
 
+    small {
+      color: var(--color-gray-20) !important;
+    }
+
+    span h4 {
+      color: #1b1b1b;
+    }
+
+    background-color: var(--color-gray-50);
+  }
 
   figure {
     width: 80px;

@@ -67,7 +67,6 @@ function App() {
 
   return (
     <div className="App">
-      <Global />
       <Header
         showProducts={showProducts}
         setInputValue={setInputValue}
@@ -88,6 +87,7 @@ function App() {
             currentSale={currentSale}
             setCurrentSale={setCurrentSale}
           />
+            <Global />
         </>
       </main>
     </div>

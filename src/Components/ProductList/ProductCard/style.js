@@ -14,7 +14,6 @@ const StyledLi = styled.li`
     width: 100%;
     height: 150px;
   }
-
   img {
     display: block;
     margin: 0 auto;
@@ -56,9 +55,23 @@ const StyledLi = styled.li`
     font-size: 14px;
   }
 
-  @media (max-width:950px){
+  @media (max-width: 950px) {
     button {
       width: 100%;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-100);
+    border: 2px solid #1b1b1b;
+    overflow: hidden;
+
+    div {
+      background-color: var(--color-gray-50);
+    }
+
+    section > h4 {
+      color: #1b1b1b;
     }
   }
 `;
