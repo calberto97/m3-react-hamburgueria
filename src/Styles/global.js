@@ -27,6 +27,18 @@ const Global = createGlobalStyle`
     }
   }
 
+  main {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+
   ul {
     list-style: none;
   }

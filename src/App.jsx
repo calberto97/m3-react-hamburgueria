@@ -1,10 +1,10 @@
-import "./App.css";
 import React, { useState, useEffect } from "react";
 import ProductList from "./Components/ProductList";
 import Header from "./Components/Header/header";
 import Cart from "./Components/Cart";
 import toast, { Toaster } from "react-hot-toast";
 import Global from "./Styles/global";
+import API from "./Services/api";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -12,14 +12,26 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  // useEffect(() => {
+  //   fetch(
+  //     "https://hamburgueria-kenzie-json-serve.herokuapp.com/products"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((response) => setProducts(response))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  // console.log(products)
+
   useEffect(() => {
-    fetch(
-      "https://hamburgueria-kenzie-json-serve.herokuapp.com/products"
-    )
-      .then((response) => response.json())
-      .then((response) => setProducts(response))
-      .catch((err) => console.log(err));
-  }, []);
+    try {
+      API.get('/products').then(response => setProducts(response.data))
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+  
+
 
   function showProducts() {
     let filtered = products.filter((product) =>

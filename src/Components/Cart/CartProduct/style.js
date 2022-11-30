@@ -5,7 +5,7 @@ const StyledLi = styled.li`
   height: 80px;
   padding: 10px;
   margin: 20px 0;
-
+  
   display: flex;
   justify-content: space-between;
 
@@ -13,7 +13,7 @@ const StyledLi = styled.li`
     display: flex;
     align-items: center;
     gap: 10px;
-
+    
     height: 100%;
   }
 
