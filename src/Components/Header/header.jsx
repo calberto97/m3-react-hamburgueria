@@ -8,7 +8,7 @@ const Header = ({
 }) => {
 
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     showProducts();
   }

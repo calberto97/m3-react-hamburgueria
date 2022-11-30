@@ -12,17 +12,6 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://hamburgueria-kenzie-json-serve.herokuapp.com/products"
-  //   )
-  //     .then((response) => response.json())
-  //     .then((response) => setProducts(response))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-  // console.log(products)
-
   useEffect(() => {
     try {
       API.get('/products').then(response => setProducts(response.data))
@@ -33,7 +22,7 @@ function App() {
   
 
 
-  function showProducts() {
+const showProducts = () => {
     let filtered = products.filter((product) =>
       product.name.toUpperCase().includes(inputValue.toUpperCase())
     );
@@ -63,7 +52,7 @@ function App() {
       },
     });
 
-  function handleClick(productID, price) {
+  const handleClick = (productID, price) => {
     if (
       currentSale.find((product) => product.id === productID) ===
       undefined
