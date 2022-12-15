@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledHeader = styled.header`
   background-color: var(--color-gray-0);
   box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.1);
   margin-bottom: 32px;
+  display: flex;
+  align-items: center;
 
   @media (prefers-color-scheme: dark) {
     --color-gray-0: #1b1b1b;
@@ -18,7 +20,7 @@ const StyledHeader = styled.header`
     }
   }
 
-  div {
+  && > div {
     height: 80px;
     display: flex;
     align-items: center;
@@ -28,8 +30,10 @@ const StyledHeader = styled.header`
   h2 {
     font-size: var(--font-size-26);
   }
+
   small {
     color: crimson;
+    font-size: var(--font-size-18);
   }
 
   form {
@@ -44,6 +48,44 @@ const StyledHeader = styled.header`
     padding: 0 10px;
 
     background-color: white;
+  }
+
+  div > div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  span {
+    svg {
+      color: #bdbdbd;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    > svg {
+      margin-left: 30px;
+    }
+
+    > small {
+      position: relative;
+      height: 100%;
+      cursor: pointer;
+
+      > p {
+        padding: 3px 5px;
+        border-radius: 8px;
+        background-color: var(--color-primary);
+
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--color-gray-0);
+
+        position: absolute;
+        right: -8px;
+        top: -10px;
+      }
+    }
   }
 
   @media (max-width: 700px) {
@@ -69,4 +111,4 @@ const StyledHeader = styled.header`
   }
 `;
 
-export default StyledHeader
+export default StyledHeader;

@@ -5,19 +5,19 @@ import CartTotal from "./CartTotal";
 import StyledDiv from "./style";
 
 const Cart = ({ currentSale, setCurrentSale }) => {
-  const total = currentSale.reduce(
+  const total = currentSale?.reduce(
     (acc, next) => acc + next.price,
     0
   );
 
-  if (currentSale.length) {
+  if (currentSale?.length) {
     return (
       <StyledDiv className="not-empty">
         <div>
           <h2>Carrinho de compras</h2>
         </div>
         <ul>
-          {currentSale.map((product) => (
+          {currentSale?.map((product) => (
             <CartProduct
               product={product}
               currentSale={currentSale}

@@ -1,15 +1,27 @@
 import React from "react";
 import uuid from "react-uuid";
+import { iProduct } from "../../Context/ProductContext";
 import ProductCard from "./ProductCard";
 import StyledDiv from "./style";
+
+interface iProps {
+  products: iProduct[];
+  handleClick: (productID: number) => void;
+  inputValue: string;
+  setFilteredProducts: React.Dispatch<
+    React.SetStateAction<iProduct[]>
+  >;
+}
 
 const ProductList = ({
   products,
   handleClick,
   inputValue,
   setFilteredProducts,
-}) => {
-  if (products.length === 6) {
+}: iProps) => {
+  // console.log(products)
+
+  if (products?.length === 6) {
     return (
       <StyledDiv>
         <ul>
@@ -23,7 +35,7 @@ const ProductList = ({
         </ul>
       </StyledDiv>
     );
-  } else if (products.length > 0) {
+  } else if (products?.length > 0) {
     return (
       <>
         <StyledDiv>
@@ -39,7 +51,7 @@ const ProductList = ({
             </button>
           </div>
           <ul>
-            {products.map((product) => (
+            {products?.map((product) => (
               <ProductCard
                 product={product}
                 handleClick={handleClick}
@@ -50,6 +62,8 @@ const ProductList = ({
         </StyledDiv>
       </>
     );
+  } else {
+    return null
   }
 };
 
