@@ -66,7 +66,7 @@ export const ProductProvider = ({ children }: iChildren) => {
       window.localStorage.clear();
     }
     
-  }, [navigate]);
+  }, []);
 
   const showProducts = () => {
     let filtered = products.filter((product) =>
