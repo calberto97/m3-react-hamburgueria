@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  width: 65%;
+  width: 100%;
   height: fit-content;
   margin-bottom: 20px;
 
@@ -13,6 +13,14 @@ const StyledDiv = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-background);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      border: 3px solid var(--color-background);
+    }
   }
 
   @media (max-width: 1300px) {
@@ -51,11 +59,11 @@ const StyledDiv = styled.div`
     font-weight: 700;
   }
 
-   @media (prefers-color-scheme: dark) {
-     div > h2 {
+  @media (prefers-color-scheme: dark) {
+    div > h2 {
       color: var(--color-gray-20);
-     }
-   }
+    }
+  }
 
   h2 {
     color: var(--color-gray-100);

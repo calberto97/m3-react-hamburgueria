@@ -124,6 +124,24 @@ const Global = createGlobalStyle`
         color: #1b1b1b !important;
       }
   }
+
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-primary) var(--color-gray-0);
+
+    /* Chrome, Edge, and Safari */
+    ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-gray-0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary);
+      border-radius: 10px;
+      border: 3px solid var(--color-gray-0);
+    }
 `;
 
 export default Global;

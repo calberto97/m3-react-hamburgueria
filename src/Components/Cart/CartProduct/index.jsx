@@ -1,5 +1,6 @@
 import React from "react";
 import StyledLi from "./style";
+import {FaTrash} from 'react-icons/fa'
 
 const CartProduct = ({ product, currentSale, setCurrentSale }) => {
   const { name, category, price, img, id } = product;
@@ -21,13 +22,11 @@ const CartProduct = ({ product, currentSale, setCurrentSale }) => {
           <small>{category}</small>
         </span>
       </div>
-      <small
+      <FaTrash
         onClick={() => {
           handleRemove(id);
         }}
-      >
-        Remover
-      </small>
+      />
     </StyledLi>
   );
 };

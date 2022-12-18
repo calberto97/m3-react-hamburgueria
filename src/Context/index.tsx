@@ -1,5 +1,6 @@
 import { CartProvider } from "./CartContext";
 import { ProductProvider } from "./ProductContext";
+import { UserProvider } from "./UserContext";
 
 interface iChildren {
   children: React.ReactNode;
@@ -7,9 +8,11 @@ interface iChildren {
 
 const Providers = ({ children }: iChildren) => {
   return (
-    <ProductProvider>
-      <CartProvider>{children}</CartProvider>
-    </ProductProvider>
+    <UserProvider>
+      <ProductProvider>
+        <CartProvider>{children}</CartProvider>
+      </ProductProvider>
+    </UserProvider>
   );
 };
 

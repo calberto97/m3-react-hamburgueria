@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledMain = styled.main`
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 140px;
   justify-content: center;
   height: 100vh;
 
@@ -13,43 +13,37 @@ const StyledMain = styled.main`
     font-weight: 600;
   }
 
-  && > .left {
+  .right {
     width: 500px;
     max-width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 26px;
 
-    padding: 26px 24px;
+    padding: 30px 24px;
     border: 2px solid var(--color-gray-0);
     border-radius: 5px;
 
-    > h4 {
-      width: 100%;
-      text-align: left;
-    }
+    > span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
+      > a {
+        font-size: var(--font-size-14);
+        color: var(--color-gray-50);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
     > form {
       display: flex;
       flex-direction: column;
       gap: 26px;
-      width: 100%;
-    }
-
-    > small {
-      width: 70%;
-      text-align: center;
-      font-size: var(--font-size-14);
-      color: var(--color-gray-50);
-    }
-
-    > button {
-      width: 100%;
     }
   }
 
-  && > .right {
+  .left {
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -69,18 +63,17 @@ const StyledMain = styled.main`
   }
 
   @media (max-width: 1000px) {
-    flex-direction: column-reverse;
     gap: 14px;
     height: auto;
 
-    .right {
+    .left {
       width: 100%;
       max-width: 500px !important;
       margin-top: 40px;
-      gap: 16px !important;
+      gap: 16px;
     }
 
-    .left {
+    .right {
       max-width: 100% !important;
       margin-bottom: 14px;
     }
@@ -89,12 +82,6 @@ const StyledMain = styled.main`
       display: none;
     }
   }
-
-  @media (max-width: 400px) {
-    .left > small {
-      width: 100% !important;
-    }
-  }
 `;
 
-export default StyledMain;
+export default StyledMain

@@ -50,6 +50,11 @@ const StyledHeader = styled.header`
     background-color: white;
   }
 
+  button {
+    position: absolute;
+    right: 10px;
+  }
+
   div > div {
     display: flex;
     align-items: center;
@@ -57,6 +62,10 @@ const StyledHeader = styled.header`
   }
 
   span {
+    svg:first-child {
+      display: none;
+    }
+
     svg {
       color: #bdbdbd;
       font-size: 30px;
@@ -83,31 +92,94 @@ const StyledHeader = styled.header`
 
         position: absolute;
         right: -8px;
-        top: -10px;
+        top: -20px;
       }
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 820px) {
     div {
-      flex-direction: column;
-      height: fit-content;
-      gap: 14px;
       padding-top: 14px;
       padding-bottom: 14px;
     }
 
     form {
       width: 100%;
+      display: none;
+
+      input {
+        width: 100%;
+        /* display: none; */
+      }
+
+      button {
+        /* background-color: transparent;
+        padding: 0;
+        position: absolute;
+        right: -10px; */
+
+        svg {
+          /* color: #bdbdbd;
+          font-size: 25px; */
+        }
+      }
     }
-    input {
+
+    span {
+      display: flex;
+      /* align-items: center; */
+
+      svg:first-child {
+        /* color: red; */
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 25px;
+        margin-top: 2px;
+      }
+
+      small > p {
+        top: -7px;
+      }
+
+      > svg {
+        margin-left: 20px;
+      }
+    }
+
+    .show {
+      display: inline-block;
       width: 100%;
+
+      button {
+        top: 10px;
+      }
     }
+
   }
 
-  button {
-    position: absolute;
-    right: 10px;
+  @media (max-width: 400px) {
+    h2 {
+      font-size: var(--font-size-18);
+    }
+
+    svg {
+      font-size: 20px !important;
+    }
+
+    span {
+      /* align-items: center; */
+    }
+
+    span > svg {
+      /* font-size: 24px !important; */
+    }
+
+    span > small > p {
+      font-size: 10px;
+      padding: 1px 3px;
+      top: -5px;
+      right: -5px;
+    }
   }
 `;
 

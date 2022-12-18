@@ -1,25 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import uuid from "react-uuid";
-import { iProduct } from "../../Context/ProductContext";
+import { CartContext } from "../../Context/CartContext";
+import {
+  iProduct,
+  ProductContext,
+} from "../../Context/ProductContext";
 import ProductCard from "./ProductCard";
 import StyledDiv from "./style";
 
 interface iProps {
   products: iProduct[];
-  handleClick: (productID: number) => void;
-  inputValue: string;
-  setFilteredProducts: React.Dispatch<
-    React.SetStateAction<iProduct[]>
-  >;
 }
 
-const ProductList = ({
-  products,
-  handleClick,
-  inputValue,
-  setFilteredProducts,
-}: iProps) => {
-  // console.log(products)
+const ProductList = ({ products }: iProps) => {
+  const { searchText, setFilteredProducts } =
+    useContext(ProductContext);
+
+  const { handleClick } = useContext(CartContext);
 
   if (products?.length === 6) {
     return (
@@ -41,7 +38,7 @@ const ProductList = ({
         <StyledDiv>
           <div>
             <h2>
-              Resultados para: <small>{inputValue}</small>
+              Resultados para: <small>{searchText}</small>
             </h2>
             <button
               className="button-green-small"
@@ -63,7 +60,7 @@ const ProductList = ({
       </>
     );
   } else {
-    return null
+    return null;
   }
 };
 

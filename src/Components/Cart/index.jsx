@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import uuid from "react-uuid";
 import CartProduct from "./CartProduct";
 import CartTotal from "./CartTotal";
 import StyledDiv from "./style";
+import { AiOutlineClose } from "react-icons/ai";
+import { CartContext } from "../../Context/CartContext";
 
 const Cart = ({ currentSale, setCurrentSale }) => {
   const total = currentSale?.reduce(
@@ -10,11 +12,14 @@ const Cart = ({ currentSale, setCurrentSale }) => {
     0
   );
 
+  const { setOpenModal } = useContext(CartContext);
+
   if (currentSale?.length) {
     return (
       <StyledDiv className="not-empty">
         <div>
           <h2>Carrinho de compras</h2>
+          <AiOutlineClose onClick={() => setOpenModal(false)} />
         </div>
         <ul>
           {currentSale?.map((product) => (
@@ -26,6 +31,7 @@ const Cart = ({ currentSale, setCurrentSale }) => {
             />
           ))}
         </ul>
+        <hr />
         <CartTotal
           cartTotal={total}
           setCurrentSale={setCurrentSale}
@@ -37,6 +43,7 @@ const Cart = ({ currentSale, setCurrentSale }) => {
       <StyledDiv>
         <div>
           <h2>Carrinho de compras</h2>
+          <AiOutlineClose onClick={() => setOpenModal(false)} />
         </div>
         <div>
           <h2>Sua sacola está vazia</h2>
@@ -45,7 +52,6 @@ const Cart = ({ currentSale, setCurrentSale }) => {
       </StyledDiv>
     );
   }
-
 };
 
 export default Cart;

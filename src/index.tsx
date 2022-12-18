@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import Providers from "./Context";
 import reportWebVitals from "./reportWebVitals";
+import Global from "./Styles/global";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Providers>
+        <Global/>
         <App />
       </Providers>
     </BrowserRouter>

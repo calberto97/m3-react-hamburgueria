@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledLi = styled.li`
   width: 100%;
   height: 80px;
-  padding: 10px;
+  padding: 22px;
   margin: 20px 0;
   
   display: flex;
@@ -22,7 +22,7 @@ const StyledLi = styled.li`
       background-color: var(--color-gray-100) !important;
     }
 
-    small {
+    svg {
       color: var(--color-gray-20) !important;
     }
 
@@ -58,10 +58,10 @@ const StyledLi = styled.li`
     font-size: var(--font-size-14);
   }
 
-  small {
-    font-size: var(--font-size-12);
+  svg {
+    font-size: 14px;
     color: var(--color-gray-50);
-    font-weight: 400;
+    cursor: pointer;
   }
 
   > small {

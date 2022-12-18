@@ -1,12 +1,9 @@
-
 import RoutesComponent from "./Routes";
 
 function App() {
-
-
   return (
     <>
-    <RoutesComponent />
+      <RoutesComponent />
     </>
   );
 }

@@ -2,19 +2,32 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   background-color: var(--color-gray-0);
-  width: 30%;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
   border-radius: 5px;
+  /* overflow-y: scroll; */
   overflow: hidden;
-
-  height: fit-content;
-  /* min-height: 220px; */
-  margin-bottom: 20px;
 
   position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  hr {
+    margin: 0 auto;
+    width: 92%;
+    margin: 0 4%;
+    text-align: center;
+    background-color: var(--color-gray-20);
+    height: 2px;
+    border: none;
+  }
+
+  ul {
+    overflow-y: scroll;
+  }
 
   @media (max-width: 1000px) {
     width: 100%;
@@ -44,6 +57,17 @@ const StyledDiv = styled.div`
   > div:first-child {
     background-color: var(--color-primary);
     padding: 20px 22px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      font-size: 14px;
+      color: #ffffff80;
+
+      cursor: pointer;
+    }
   }
 
   .not-empty {
@@ -78,7 +102,7 @@ const StyledDiv = styled.div`
 
   section {
     width: 100%;
-    padding: 14px 10px;
+    padding: 14px 22px;
     bottom: 0;
   }
 

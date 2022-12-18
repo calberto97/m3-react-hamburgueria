@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import API from "../../Services/api";
 
 interface iChildren {
@@ -16,6 +17,9 @@ interface iExport {
   showProducts: () => void;
   products: iProduct[];
   notify: (text: string) => string;
+  navigate: NavigateFunction;
+  searchText: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface iProduct {
@@ -32,24 +36,37 @@ export const ProductProvider = ({ children }: iChildren) => {
   const [products, setProducts] = useState<iProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<iProduct[]>([]);
   const [inputValue, setInputValue] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
 
-    const notify = (text: string) =>
-      toast(text, {
-        style: {
-          fontSize: "18px",
-          fontWeight: "bold",
-        },
-      });
+  const notify = (text: string) =>
+    toast(text, {
+      style: {
+        fontSize: "18px",
+        fontWeight: "bold",
+      },
+    });
 
   useEffect(() => {
-    try {
-      API.get("/products").then((response) =>
+    const token = localStorage.getItem("@TOKEN");
+    if (token) {
+      API.get('products', {
+        headers: {
+        authorization: `Bearer ${token}`
+        }
+      }).then(response => {
         setProducts(response.data)
-      );
-    } catch (error) {
-      console.log(error);
+      }).catch(error => {
+        console.error(error)
+        navigate('login')
+        window.localStorage.clear();
+      })
+    } else {
+      navigate('/login')
+      window.localStorage.clear();
     }
-  }, []);
+    
+  }, [navigate]);
 
   const showProducts = () => {
     let filtered = products.filter((product) =>
@@ -74,7 +91,7 @@ export const ProductProvider = ({ children }: iChildren) => {
   };
 
   return (
-    <ProductContext.Provider value={{filteredProducts, setFilteredProducts, inputValue, setInputValue, showProducts, products, notify}}>
+    <ProductContext.Provider value={{filteredProducts, setFilteredProducts, inputValue, setInputValue, showProducts, products, notify, navigate, searchText, setSearchText}}>
       {children}
     </ProductContext.Provider>
   );

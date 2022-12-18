@@ -22,7 +22,6 @@ const ProductCard = ({ product, handleClick }) => {
       </section>
     </StyledLi>
   );
-  //   return products.map((product) => <li key={(uuid())}>{name}</li>);
 };
 
 export default ProductCard;
