@@ -67,10 +67,7 @@ export const UserProvider = ({ children }: iChildren) => {
       );
       window.localStorage.setItem("@USERID", response.data.user.id);
       setUser(response.data.user);
-      setTimeout(() => {
-        navigate("/home");
-        // olá corretor, esse Timeout é preciso para que a Home consiga fazer a requisição (que usa o @token do localStorage) para carregar a lista de produtos
-      }, 300);
+      navigate("/home");
     } catch (error: any) {
       console.error(error.message);
       console.error(error.response.data);

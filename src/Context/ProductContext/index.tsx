@@ -16,6 +16,7 @@ interface iExport {
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   showProducts: () => void;
   products: iProduct[];
+  setProducts: React.Dispatch<React.SetStateAction<iProduct[]>>;
   notify: (text: string) => string;
   navigate: NavigateFunction;
   searchText: string;
@@ -47,27 +48,6 @@ export const ProductProvider = ({ children }: iChildren) => {
       },
     });
 
-  useEffect(() => {
-    const token = localStorage.getItem("@TOKEN");
-    if (token) {
-      API.get('products', {
-        headers: {
-        authorization: `Bearer ${token}`
-        }
-      }).then(response => {
-        setProducts(response.data)
-      }).catch(error => {
-        console.error(error)
-        navigate('login')
-        window.localStorage.clear();
-      })
-    } else {
-      navigate('/login')
-      window.localStorage.clear();
-    }
-    
-  }, []);
-
   const showProducts = () => {
     let filtered = products.filter((product) =>
       product.name.toUpperCase().includes(inputValue.toUpperCase())
@@ -91,7 +71,7 @@ export const ProductProvider = ({ children }: iChildren) => {
   };
 
   return (
-    <ProductContext.Provider value={{filteredProducts, setFilteredProducts, inputValue, setInputValue, showProducts, products, notify, navigate, searchText, setSearchText}}>
+    <ProductContext.Provider value={{filteredProducts, setFilteredProducts, inputValue, setInputValue, showProducts, products, setProducts, notify, navigate, searchText, setSearchText}}>
       {children}
     </ProductContext.Provider>
   );
