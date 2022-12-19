@@ -1,6 +1,12 @@
 import React from "react";
+import { iProduct } from "../../../Context/ProductContext";
 
-const CartTotal = ({ cartTotal, setCurrentSale }) => {
+interface iProps {
+  cartTotal: number;
+  setCurrentSale: React.Dispatch<React.SetStateAction<iProduct[]>>;
+}
+
+const CartTotal = ({ cartTotal, setCurrentSale }: iProps) => {
   return (
     <>
       <section>

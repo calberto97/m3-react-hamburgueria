@@ -7,9 +7,9 @@ import { CartContext } from "../../Context/CartContext";
 
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Cart from "../../Components/Cart";
+import Cart from "../Cart";
 
-const Header = ({}) => {
+const Header = () => {
   const {
     navigate,
     setSearchText,
@@ -22,7 +22,7 @@ const Header = ({}) => {
     useContext(CartContext);
   const [showHeader, setShowHeader] = useState(true);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     if (!showHeader) {
       setShowHeader(!showHeader);
     }
@@ -61,7 +61,7 @@ const Header = ({}) => {
                 <input
                   type="text"
                   placeholder="Digitar Pesquisa"
-                  maxLength="20"
+                  maxLength={20}
                   required
                   onChange={(e) => setInputValue(e.target.value)}
                 />
@@ -87,7 +87,7 @@ const Header = ({}) => {
               <input
                 type="text"
                 placeholder="Digitar Pesquisa"
-                maxLength="20"
+                maxLength={20}
                 required
                 onChange={(e) => setInputValue(e.target.value)}
               />

@@ -6,6 +6,8 @@ import Providers from "./Context";
 import reportWebVitals from "./reportWebVitals";
 import Global from "./Styles/global";
 
+const GlobalProxy: any = Global;
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -13,7 +15,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Providers>
-        <Global/>
+        <GlobalProxy/>
         <App />
       </Providers>
     </BrowserRouter>

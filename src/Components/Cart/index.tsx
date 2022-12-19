@@ -5,8 +5,14 @@ import CartTotal from "./CartTotal";
 import StyledDiv from "./style";
 import { AiOutlineClose } from "react-icons/ai";
 import { CartContext } from "../../Context/CartContext";
+import { iProduct } from "../../Context/ProductContext";
 
-const Cart = ({ currentSale, setCurrentSale }) => {
+interface iProps {
+  currentSale: iProduct[];
+  setCurrentSale: React.Dispatch<React.SetStateAction<iProduct[]>>;
+}
+
+const Cart = ({ currentSale, setCurrentSale }: iProps) => {
   const total = currentSale?.reduce(
     (acc, next) => acc + next.price,
     0
