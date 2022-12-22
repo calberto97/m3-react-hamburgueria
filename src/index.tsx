@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import Providers from "./Context";
+// import Providers from "./Context";
 import reportWebVitals from "./reportWebVitals";
 import Global from "./Styles/global";
 
@@ -14,10 +14,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Providers>
+      {/* <Providers> */}
         <GlobalProxy/>
         <App />
-      </Providers>
+      {/* </Providers> */}
     </BrowserRouter>
   </React.StrictMode>
 );

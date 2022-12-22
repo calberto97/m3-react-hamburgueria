@@ -25,7 +25,7 @@ const ProductList = ({ products }: iProps) => {
           {products.map((product) => (
             <ProductCard
               product={product}
-              handleClick={handleClick}
+              // handleClick={handleClick}
               key={uuid()}
             />
           ))}
@@ -51,7 +51,7 @@ const ProductList = ({ products }: iProps) => {
             {products?.map((product) => (
               <ProductCard
                 product={product}
-                handleClick={handleClick}
+                // handleClick={handleClick}
                 key={uuid()}
               />
             ))}

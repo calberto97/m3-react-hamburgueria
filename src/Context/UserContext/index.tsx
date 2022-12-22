@@ -1,12 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import api from "../../Services/api";
 
-interface iChildren {
-  children: React.ReactNode;
-}
 
 interface iExport {
   onSubmitLogin: (data: iData) => Promise<void>;
@@ -34,7 +31,7 @@ interface iUser {
 
 export const UserContext = createContext({} as iExport);
 
-export const UserProvider = ({ children }: iChildren) => {
+export const UserProvider = () => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<iUser>();
   const navigate = useNavigate();
@@ -69,8 +66,6 @@ export const UserProvider = ({ children }: iChildren) => {
       setUser(response.data.user);
       navigate("/home");
     } catch (error: any) {
-      console.error(error.message);
-      console.error(error.response.data);
       notify("Oops! Algo deu errado ❌");
       reset({
         email: "teste ",
@@ -83,7 +78,10 @@ export const UserProvider = ({ children }: iChildren) => {
   const onSubmitRegister = async (data: iDataRegister) => {
     try {
       await api.post("/users", data);
-      navigate("/login");
+      notify("Cadastro efetuado ✅ ");
+      setTimeout(() => {
+        navigate("/login");
+      }, 200);
     } catch (error: any) {
       console.error(error.message);
       console.error(error.response.data);
@@ -95,7 +93,7 @@ export const UserProvider = ({ children }: iChildren) => {
     <UserContext.Provider
       value={{ onSubmitLogin, loading, onSubmitRegister }}
     >
-      {children}
+      <Outlet />
     </UserContext.Provider>
   );
 };

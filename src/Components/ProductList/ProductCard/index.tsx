@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../../Context/CartContext";
 import { iProduct } from "../../../Context/ProductContext";
 import StyledLi from "./style";
 
 interface iProps {
   product: iProduct;
-  handleClick: (productID: number) => void;
+  // handleClick: (productID: number) => void;
 }
 
-const ProductCard = ({ product, handleClick }: iProps) => {
+const ProductCard = ({ product }: iProps) => {
   const { name, category, price, img, id } = product;
+
+  const {handleClick} = useContext(CartContext)
 
   return (
     <StyledLi id={`${id}`}>

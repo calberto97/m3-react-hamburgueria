@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import logo from "../../Assets/logo.svg";
 import pattern from "../../Assets/pattern.svg";
 import message from "../../Assets/message.png";
@@ -7,14 +7,13 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { iData, UserContext } from "../../Context/UserContext";
 import loginSchema from "./loginSchema";
 import { Toaster } from "react-hot-toast";
 
 const LoginPage = () => {
   const { onSubmitLogin, loading } = useContext(UserContext);
-  const navigate = useNavigate();
 
   const {
     register,
@@ -72,13 +71,9 @@ const LoginPage = () => {
             Crie sua conta para saborear muitas delícias e matar sua
             fome!
           </small>
-          <Button
-            variant="contained"
-            onClick={() => navigate("/register")}
-            color="success"
-          >
-            Cadastrar
-          </Button>
+          <Link to={"/register"}>
+          Cadastrar  
+          </Link>
         </div>
         <div className="right">
           <img src={logo} alt="" className="logo" />

@@ -1,9 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import { Outlet } from "react-router-dom";
 import { iProduct, ProductContext } from "../ProductContext";
-
-interface iChildren {
-  children: React.ReactNode;
-}
 
 interface iExport {
   currentSale: iProduct[];
@@ -15,7 +12,7 @@ interface iExport {
 
 export const CartContext = createContext({} as iExport);
 
-export const CartProvider = ({ children }: iChildren) => {
+export const CartProvider = () => {
   const { notify, products } = useContext(ProductContext);
 
   const [openModal, setOpenModal] = useState(false);
@@ -35,7 +32,6 @@ export const CartProvider = ({ children }: iChildren) => {
 
       if (foundProduct) {
         setCurrentSale([foundProduct, ...currentSale]);
-        // setCurrentSale([foundProduct as iProduct, ...currentSale]);
       }
     } else {
       notify("Esse produto já foi adicionado ✅");
@@ -52,7 +48,7 @@ export const CartProvider = ({ children }: iChildren) => {
         setOpenModal,
       }}
     >
-      {children}
+      <Outlet />
     </CartContext.Provider>
   );
 };

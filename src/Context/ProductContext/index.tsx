@@ -1,11 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import toast from "react-hot-toast";
-import { NavigateFunction, useNavigate } from "react-router-dom";
-import API from "../../Services/api";
-
-interface iChildren {
-  children: React.ReactNode;
-}
+import { NavigateFunction, Outlet, useNavigate } from "react-router-dom";
 
 interface iExport {
   filteredProducts: iProduct[];
@@ -33,7 +28,7 @@ export interface iProduct {
 
 export const ProductContext = createContext({} as iExport);
 
-export const ProductProvider = ({ children }: iChildren) => {
+export const ProductProvider = () => {
   const [products, setProducts] = useState<iProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<iProduct[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -72,7 +67,7 @@ export const ProductProvider = ({ children }: iChildren) => {
 
   return (
     <ProductContext.Provider value={{filteredProducts, setFilteredProducts, inputValue, setInputValue, showProducts, products, setProducts, notify, navigate, searchText, setSearchText}}>
-      {children}
+      <Outlet/>
     </ProductContext.Provider>
   );
 };
